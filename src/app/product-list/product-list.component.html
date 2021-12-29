@@ -1,0 +1,9 @@
+<div class="product-list-container">
+    <h2 class="product-list-title" >Products <span class="mobile-button" (click)="toggle=!toggle"> {{ toggle ? 'Show' : 'Hide'}} </span></h2>
+    <div class="product-container" [ngClass]="!toggle ? '' : 'display-none-mobile'">
+      <div *ngFor="let product of products,let i = index">
+          <a class="product-tile no-decoration" [routerLink]="['/product']" routerLinkActive="active-link"
+          [queryParams]="{ order: i }" [state]="product">{{product.name}}</a>
+      </div>
+    </div>
+</div>
